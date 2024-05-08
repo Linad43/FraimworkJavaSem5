@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<h1>All tasks</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Task</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="task: ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.name}"></td>
+        <td th:text="${task.text}"></td>
+        <td th:text="${task.status}"></td>
+        <td><a th:href="@{task_update/{id}(id=${task.id})}">change status</a></td>
+        <td><a th:href="@{task_delete/{id}(id=${task.id})}">delete task</a></td>
+    </tr>
+</table>
+<h2>Add a task</h2>
+<form action="/tasks-add" method="post">
+    Name: <input type="text" name="name"><br />
+    Text: <input type="text" name="text"><br />
+    <button type="submit">Add product</button>
+</body>
+</html>
