@@ -3,7 +3,6 @@ package linad.FraimworkHWLes5.controller;
 import linad.FraimworkHWLes5.model.Task;
 import linad.FraimworkHWLes5.service.TaskService;
 import lombok.AllArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tasks1")
+@RequestMapping("/tasks_postman")
 @AllArgsConstructor
 public class TaskControllerPostman {
     private final TaskService service;
@@ -20,15 +19,20 @@ public class TaskControllerPostman {
     public List<Task> getAllTasks(){
         return service.getAllTask();
     }
-    @PostMapping("/tasks-add1")
-    public void addTasks(Task task){
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable("id") long id){
+        return service.getTaskById(id);
+    }
+    @PostMapping()
+    public void addTask(Task task){
         service.addTask(task);
     }
-    @GetMapping("/task_update1/{id}")
-    public void changeStatus(@PathVariable("id") long id) {
+    @PutMapping("/{id}")
+    public Task changeStatus(@PathVariable("id") long id) {
         service.changeStatus(id);
+        return service.getTaskById(id);
     }
-    @GetMapping("/task_delete1/{id}")
+    @DeleteMapping("/{id}")
     public void deleteTask(@PathVariable("id") long id) {
         service.deleteTask(id);
     }

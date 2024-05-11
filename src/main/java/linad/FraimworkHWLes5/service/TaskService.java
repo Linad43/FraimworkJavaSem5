@@ -17,8 +17,8 @@ public class TaskService {
      * Добавление задачи
      * @param task
      */
-    public void addTask(Task task){
-        repos.save(task);
+    public Task addTask(Task task){
+        return repos.save(task);
     }
 
     /**
@@ -42,24 +42,16 @@ public class TaskService {
      * Изменение статуса по id
      * @param id
      */
-    public void changeStatus(Long id){
+    public Task changeStatus(Long id){
         Optional<Task> optionalTask = repos.findById(id);
         if(optionalTask.isPresent()){
             Task task = optionalTask.get();
             task.setStatus(!task.isStatus());
             repos.save(task);
+            return task;
         } else {
             throw new IllegalArgumentException("Task not found with id: " + id);
         }
-
-    }
-
-    /**
-     * Изменение статуса по task
-     * @param task
-     */
-    public void changeStatus(Task task){
-        changeStatus(task.getId());
     }
 
     /**
