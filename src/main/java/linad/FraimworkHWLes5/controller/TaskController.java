@@ -1,8 +1,11 @@
 package linad.FraimworkHWLes5.controller;
 
+import linad.FraimworkHWLes5.aspect.LogAspect;
 import linad.FraimworkHWLes5.model.Task;
 import linad.FraimworkHWLes5.service.TaskService;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,8 +14,13 @@ import org.springframework.web.bind.annotation.*;
 //@RestController
 @Controller
 @AllArgsConstructor
+@EnableAspectJAutoProxy
 public class TaskController {
     private final TaskService service;
+    @Bean
+    public LogAspect getLogAspect() {
+        return new LogAspect();
+    }
 
     @GetMapping("/tasks")
     public String getAllTasks(Model model) {

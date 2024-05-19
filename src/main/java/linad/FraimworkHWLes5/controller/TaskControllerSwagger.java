@@ -1,8 +1,11 @@
 package linad.FraimworkHWLes5.controller;
 
+import linad.FraimworkHWLes5.aspect.LogAspect;
 import linad.FraimworkHWLes5.model.Task;
 import linad.FraimworkHWLes5.service.TaskService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

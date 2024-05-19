@@ -42,6 +42,7 @@ public class TaskService {
      * Изменение статуса по id
      * @param id
      */
+
     public Task changeStatus(Long id){
         Optional<Task> optionalTask = repos.findById(id);
         if(optionalTask.isPresent()){
