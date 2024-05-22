@@ -1,0 +1,13 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: APIGateWay
+  cloud:
+    gateway:
+      routes:
+        - id: MicroserviseTask
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/tasks_postman/**
