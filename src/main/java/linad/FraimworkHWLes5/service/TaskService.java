@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class TaskService {
-    private final TaskRepos repos;
+    private TaskRepos repos;
 
     /**
      * Добавление задачи
