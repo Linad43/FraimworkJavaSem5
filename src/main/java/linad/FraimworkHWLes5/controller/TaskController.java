@@ -1,5 +1,7 @@
 package linad.FraimworkHWLes5.controller;
 
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.Metrics;
 import linad.FraimworkHWLes5.aspect.LogAspect;
 import linad.FraimworkHWLes5.model.Task;
 import linad.FraimworkHWLes5.service.TaskService;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 @EnableAspectJAutoProxy
 public class TaskController {
     private final TaskService service;
+    private final Counter counter = Metrics.counter("addTask");
+
     @Bean
     public LogAspect getLogAspect() {
         return new LogAspect();
@@ -30,6 +34,7 @@ public class TaskController {
 
     @PostMapping("/tasks-add")
     public String addTasks(Task task, Model model) {
+        counter.increment();
         service.addTask(task);
         model.addAttribute("tasks", service.getAllTask());
         return "redirect:/tasks";
