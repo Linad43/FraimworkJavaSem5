@@ -4,3 +4,10 @@ server:
 spring:
   application:
     name: MicroserviseTask
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env, info, health, metrics, prometheus
+
