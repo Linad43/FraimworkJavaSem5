@@ -33,7 +33,7 @@ public class IntegrationConfig {
     @Bean
     @ServiceActivator(inputChannel = "fileWriterChannel")
     public FileWritingMessageHandler messageHandler() {
-        FileWritingMessageHandler handler = new FileWritingMessageHandler(new File("Home/IdeaProjects/FraimworkHWLes5"));
+        FileWritingMessageHandler handler = new FileWritingMessageHandler(new File("C:\\Users\\Linad\\IdeaProjects\\FraimworkJavaSem5"));
         handler.setExpectReply(false);
         handler.setFileExistsMode(FileExistsMode.APPEND);
         handler.setAppendNewLine(true);

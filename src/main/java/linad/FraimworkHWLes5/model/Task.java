@@ -2,6 +2,7 @@ package linad.FraimworkHWLes5.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 @Data
 @Entity
@@ -15,4 +16,5 @@ public class Task {
     private String text;
     @Column(nullable = false, columnDefinition = "boolean default false")
     private boolean status;
+
 }
