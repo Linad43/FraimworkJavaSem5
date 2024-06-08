@@ -2,7 +2,6 @@ package linad.FraimworkHWLes5.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
 @Data
 @Entity

@@ -11,14 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
-//@RestController
 @Controller
 @AllArgsConstructor
 @EnableAspectJAutoProxy
 public class TaskController {
     private final TaskService service;
     private final FileGateWay fileGateWay;
+
     @Bean
     public LogAspect getLogAspect() {
         return new LogAspect();

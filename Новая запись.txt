@@ -1,0 +1,2 @@
+task(id=1, name=новая запись, text=, status=false)
+task(id=2, name=новая запись, text=, status=false)

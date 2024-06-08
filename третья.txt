@@ -1,0 +1,1 @@
+task(id=3, name=третья, text=запомнить текст, status=false)

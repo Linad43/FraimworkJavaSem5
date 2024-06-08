@@ -1,0 +1,1 @@
+task(id=2, name=вторая запись, text=, status=false)
